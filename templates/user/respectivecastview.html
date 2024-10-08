@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action=">
+    {% csrf_token %}
+  <table width="200" height="280" border="1">
+    <tr>
+      <td>&nbsp;</td>
+      <td>CASTING CALL</td>
+    </tr>
+    <tr>
+      <td>Film Name</td>
+      <td>{{ data.REQUEST.CASTING.casting_film }}</td>
+    </tr>
+    <tr>
+      <td>Casting Manager</td>
+      <td>{{ data.REQUEST.CASTING.casting_manager }}</td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>{{ data.REQUEST.CASTING.email }}</td>
+    </tr>
+    <tr>
+      <td>Producer</td>
+      <td>{{ data.REQUEST.CASTING.producer }}</td>
+    </tr>
+    <tr>
+      <td>Director</td>
+      <td>{{ data.REQUEST.CASTING.director }}</td>
+    </tr>
+    <tr>
+      <td>Production House</td>
+      <td>{{ data.REQUEST.CASTING.production_house }}</td>
+    </tr>
+    <tr>
+      <td>film Genre</td>
+      <td>{{ data.REQUEST.CASTING.film_jenre }}</td>
+    </tr>
+    <tr>
+      <td>Location</td>
+      <td>{{ rs.location }}</td>
+    </tr>
+    <tr>
+      <td>Duration</td>
+      <td>{{ rs.duration }}</td>
+    </tr>
+    <tr>
+      <td>From Date</td>
+      <td>{{ rs.from_date }}</td>
+    </tr>
+    <tr>
+      <td>To Date</td>
+      <td>{{ rs.to_date }}</td>
+    </tr>
+    <tr>
+      <td>Age Requirement</td>
+      <td>{{ rs.age_requirement}}</td>
+    </tr>
+     <tr>
+      <td>Gender</td>
+      <td>{{ rs.gender}}</td>
+    </tr>
+    <tr>
+      <td>Requirements For Casting</td>
+      <td>{{ rs.casting_requirements }}</td>
+    </tr>
+    <tr>
+      <td>Video Description</td>
+      <td>{{ rs.video_description }}</td>
+    </tr>
+    <tr>
+      <td>Rules</td>
+      <td>{{ rs.rules  }}</td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

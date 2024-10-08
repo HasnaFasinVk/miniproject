@@ -1,0 +1,25 @@
+{% extends "Admin/adminindex.html" %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="">
+  <table width="367" border="1">
+    <tr>
+      <td width="73">&nbsp;</td>
+      <td width="278">EMAIL </td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td><label for="textfield"></label>
+      <input type="text" name="textfield" id="textfield" />        <label for="textarea"></label></td>
+    </tr>
+    <tr>
+      <td height="28">Description</td>
+      <td><label for="textarea2"></label>
+      <textarea name="textarea" id="textarea2" cols="45" rows="5"></textarea></td>
+    </tr>
+    <tr>
+      <td height="28">&nbsp;</td>
+      <td><input type="submit" name="button" id="button" value="Send" /></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

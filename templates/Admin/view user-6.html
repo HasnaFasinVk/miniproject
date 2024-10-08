@@ -1,0 +1,62 @@
+{% extends "Admin/adminindex.html" %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/myapp/searchuserall/">
+<table width="200" border="1">
+    {% csrf_token %}
+  <tr>
+    <td>From Age</td>
+    <td><input type="text" name="textfield89" id="textfield" /></td>
+    <td>To Age</td>
+    <td><input type="text" name="textfield98" id="textfield" /></td>
+    <td><input type="submit" name="button" id="button" value="Search" /></td>
+  </tr>
+</table>
+</table>
+  <div style="overflow-x: auto; width: 100%;">
+  <table width="648" border="1">
+    <tr>
+      <td width="99">Serial Number</td>
+      <td width="58">Name</td>
+      <td width="39">Email</td>
+      <td width="34">Contact</td>
+      <td width="39">DOB</td>
+      <td width="39">Photo</td>
+      <td width="27">Age</td>
+      <td width="27">Gender</td>
+      <td width="27">Street</td>
+      <td width="27">Place</td>
+      <td width="27">Post</td>
+      <td width="27">District</td>
+      <td width="27">State</td>
+      <td width="27">Pincode</td>
+      <td width="27">Height</td>
+      <td width="42">Weight</td>
+      <td width="56">CV</td>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.name }}</td>
+      <td> {{ i.email }}</td>
+      <td>{{ i.contact }}&nbsp;</td>
+      <td>{{ i.dob }}&nbsp;</td>
+      <td>{{ i.photo }}</td>
+      <td>{{ i.age }}</td>
+      <td>{{ i.gender}}</td>
+      <td>{{ i.street }}</td>
+      <td>{{ i.place }}</td>
+      <td>{{ i.post }}</td>
+      <td>{{i.district}}</td>
+      <td>{{i.state}}</td>
+      <td>{{ i.pincode }}</td>
+      <td>{{ i.height }}</td>
+      <td>{{ i.weight }}</td>
+      <td>{{ i.cv }}</td>
+    </tr>
+      {% endfor %}
+  </table>
+   </div>
+
+  <p>&nbsp;</p>
+</form>
+{% endblock %}

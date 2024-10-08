@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/castingsearch/">
+  <table width="453" border="1">
+  {% csrf_token %}
+       <tr>
+      <td width="60">Casting Film</td>
+      <td width="144"><label for="textfield2"></label>
+      <input type="text" name="textfield" id="textfield2" /></td>
+      <td width="42"><label for="textfield">
+        <input type="submit" name="button" id="button" value="Search" />
+      </label></td>
+    </tr>
+    <tr>
+      <td width="120">Serial Number</td>
+      <td width="120">Casting Filim</td>
+      <td width="8">Casting Manager</td>
+      <td width="7">Email</td>
+      <td width="7">Producer</td>
+      <td width="7">Director</td>
+      <td width="7">Production House</td>
+      <td width="7">Filim Genre</td>
+      <td width="7">Location</td>
+      <td width="7">Duration</td>
+      <td width="7">From Date</td>
+      <td width="7">To Date</td>
+      <td width="7">Gender Requirement</td>
+      <td width="7">Age Requirement</td>
+      <td width="7">Casting Requirement</td>
+      <td width="7">Video Requirement</td>
+      <td width="7">Rules</td>
+      <td width="8">&nbsp;</td>
+    </tr>
+      {% for i in data9 %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ i.MANAGECASTINGMAIN.casting_film }}</td>
+      <td>{{ i.MANAGECASTINGMAIN.casting_manager }}</td>
+      <td>{{ i.MANAGECASTINGMAIN.email }}</td>
+      <td>{{ i.MANAGECASTINGMAIN.producer }}</td>
+      <td>{{ i.MANAGECASTINGMAIN.director }}</td>
+      <td>{{ i.MANAGECASTINGMAIN.production_house }}</td>
+      <td>{{ i.MANAGECASTINGMAIN.film_jenre }}</td>
+      <td>{{ i.location }}</td>
+      <td>{{ i.duration }}</td>
+      <td>{{ i.from_date }}</td>
+      <td>{{ i.to_date }}</td>
+      <td>{{ i.gender }}</td>
+      <td>{{ i.age_requirement }}</td>
+      <td>{{ i.casting_requirements }}</td>
+      <td>{{ i.video_description }}</td>
+      <td>{{ i.rules }}</td>
+      <td><a href="/myapp/requestform/{{ i.id }}">Request</a></td>
+    <td><a href="/myapp/complaintsend/{{ i.MANAGECASTINGMAIN.id }}">Complaint</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+</html>

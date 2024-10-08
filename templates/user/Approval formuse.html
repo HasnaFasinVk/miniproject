@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="268" border="1">
+    <tr>
+      <td width="60">Casting Film</td>
+      <td width="144"><label for="textfield2"></label>
+      <input type="text" name="textfield" id="textfield2" /></td>
+      <td width="42"><label for="textfield">
+        <input type="submit" name="button" id="button" value="Search" />
+      </label></td>
+    </tr>
+  </table>
+  <table width="650" border="1">
+    <tr>
+      <td width="112">Serial Number</td>
+      <td width="102">Description</td>
+      <td width="114">Meeting Date</td>
+      <td width="69">Venue</td>
+      <td width="63">Date</td>
+      <td width="30">Time</td>
+        <td width="30">Contact</td>
+      <td width="69">Film </td>
+      <td width="34">&nbsp;</td>
+      <td width="34">&nbsp;</td>
+      <td width="34">&nbsp;</td>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ i.Description }}</td>
+      <td>{{ i.meeting_date }}</td>
+      <td>{{ i.venue }}</td>
+      <td>{{ i.date }}</td>
+      <td>{{ i.Time }}</td>
+        <td>{{ i.contact }}</td>
+      <td>{{ i.REQUEST.CASTING.casting_film }}</td>
+
+      <td>
+          {% if i.status == "approved"  %} Approved
+          {% elif i.status == "Rejected"  %} Rejected
+
+          {% else %}
+
+          <a href="/myapp/apaccept/{{ i.id }}">Accept</a>
+      <td><a href="/myapp/apreject/{{ i.id }}">Reject</a>
+
+    {% endif %}
+    </td>
+      <td><a href="/myapp/respectivecastinginfoview/{{ i.id }}">More</a></td>
+    </tr>  {% endfor %}
+  </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,35 @@
+{% extends "Admin/adminindex.html" %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/myapp/reviewsearch/">
+{% csrf_token %}
+  <table width="200" border="1">
+    <tr>
+      <td>From Date</td>
+      <td><input type="date" name="textfield" id="textfield" /></td>
+      <td>To Date</td>
+      <td><input type="date" name="textfield2" id="textfield2" /></td>
+      <td><input type="submit" name="button" id="button" value="Search" /></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <table width="232" border="1">
+    <tr>
+      <td width="50">Serial Number</td>
+      <td width="29">Date</td>
+      <td width="48">Review</td>
+      <td width="38">Rating</td>
+      <td width="33">User Info</td>
+    </tr>
+      {% for i in data6 %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ i.date }}</td>
+      <td>{{ i.review }}</td>
+      <td>{{ i.rating }}</td>
+      <td>{{ i.USER.name }}</td>
+    </tr>
+       {% endfor %}
+  </table>
+  <p>&nbsp;</p>
+</form>
+{% endblock %}

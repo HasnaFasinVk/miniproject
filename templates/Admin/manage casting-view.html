@@ -1,0 +1,69 @@
+{% extends "Admin/adminindex.html" %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/myapp/filmsearch/">
+  <table width="245" border="1">
+      {% csrf_token %}
+      <tr>
+          <td>Casting Film</td>
+          <td><input type="text" name="textfields" id="textfield" /></td>
+          <td><input type="submit" name="button" id="button" value="Search" /></td>
+      </tr>
+  </table>
+
+  <div style="overflow-x: auto; width: 100%;">
+    <table class="table table-bordered" width="100%">
+      <tr>
+          <td width="10">Serial Number</td>
+          <td width="10">Casting Film</td>
+          <td width="10">Casting Manager</td>
+          <td width="10">Email</td>
+          <td width="10">Producer</td>
+          <td width="10">Director</td>
+          <td width="10">Production House</td>
+          <td width="10">Film Genre</td>
+          <td width="10">Location</td>
+          <td width="10">Duration</td>
+          <td width="10">From Date</td>
+          <td width="10">To Date</td>
+          <td width="10">Gender Requirement</td>
+          <td width="10">Age Requirement</td>
+          <td width="10">Casting Requirement</td>
+          <td width="10">Video Requirement</td>
+          <td width="10">Rules</td>
+          <td width="10">&nbsp;</td>
+          <td width="10">&nbsp;</td>
+          <td width="10">&nbsp;</td>
+      </tr>
+      {% for i in datamv %}
+      <tr>
+          <td>{{ forloop.counter }}</td>
+          <td>{{ i.MANAGECASTINGMAIN.casting_film }}</td>
+          <td>{{ i.MANAGECASTINGMAIN.casting_manager }}</td>
+          <td>{{ i.MANAGECASTINGMAIN.email }}</td>
+          <td>{{ i.MANAGECASTINGMAIN.producer }}</td>
+          <td>{{ i.MANAGECASTINGMAIN.director }}</td>
+          <td>{{ i.MANAGECASTINGMAIN.production_house }}</td>
+          <td>{{ i.MANAGECASTINGMAIN.film_jenre }}</td>
+          <td>{{ i.location }}</td>
+          <td>{{ i.duration }}</td>
+          <td>{{ i.from_date }}</td>
+          <td>{{ i.to_date }}</td>
+          <td>{{ i.gender }}</td>
+          <td>{{ i.age_requirement }}</td>
+          <td>{{ i.casting_requirements }}</td>
+          <td>{{ i.video_description }}</td>
+          <td>{{ i.rules }}</td>
+          <td><a href="/myapp/userreqview/" class="btn btn-primary">REQUESTS</a></td>
+          <td><a href="/myapp/managecastedit/{{ i.id }}" class="btn btn-warning">EDIT</a></td>
+          <td><a href="/myapp/selectedcandidates/{{ i.id }}">Selected Candidates</a></td>
+          <td><a href="/myapp/approvalformviewad/{{ i.id }}">STATUS</a></td>
+          <td><a href="/myapp/complaintview/{{ i.id }}">View Complaints</a></td>
+          <td><a href="/myapp/disablecasting/{{ i.MANAGECASTINGMAIN_id }}">Disable</a></td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+
+  <p>&nbsp;</p>
+</form>
+{% endblock %}

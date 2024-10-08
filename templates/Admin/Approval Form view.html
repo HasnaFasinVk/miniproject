@@ -1,0 +1,31 @@
+
+{% extends "Admin/adminindex.html" %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/myapp/approvalform_post/">
+    {% csrf_token %}
+  <table width="436" border="1">
+    <tr>
+      <td>Serial Number</td>
+      <td>Description</td>
+      <td>Meeting Date</td>
+      <td>Venue</td>
+      <td>Time</td>
+      <td>date</td>
+      <td>Contact</td>
+      <td>status</td>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ i.Description }}</td>
+      <td>{{ i.meeting_date }}</td>
+      <td>{{ i.venue }}</td>
+      <td>{{ i.Time }}</td>
+      <td>{{ i.date }}</td>
+      <td>{{ i.contact }}</td>
+      <td>{{ i.status }}</td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+{% endblock %}

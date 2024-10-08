@@ -1,0 +1,66 @@
+{% extends "Admin/adminindex.html" %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/myapp/histsearch/">
+  <table width="245" border="1">
+      {% csrf_token %}
+      <tr>
+      <td>Casting Film</td>
+      <td><input type="text" name="textfields" id="textfield" /></td>
+          <td><input type="submit" name="button" id="button" value="Search" /></td>
+    </tr>
+  </table>
+ <div style="overflow-x: auto; width: 100%;">
+  <table width="1443" border="1">
+    <tr>
+      <td width="45">serial number</td>
+      <td width="49">Casting Filim</td>
+      <td width="54">Casting Manager</td>
+      <td width="33">Email</td>
+      <td width="56">Producer</td>
+      <td width="50">Director</td>
+      <td width="70">Production House</td>
+      <td width="53">Filim Genre</td>
+      <td width="67">Location</td>
+      <td width="76">Duration</td>
+      <td width="121">From Date</td>
+      <td width="121">To Date</td>
+      <td width="121">GenderRequirement</td>
+      <td width="76">Age Requirement</td>
+      <td width="76">Casting Requirement</td>
+      <td width="76">Video Requirement</td>
+      <td width="33">Rules</td>
+      <td width="78">&nbsp;</td>
+      <td width="24">&nbsp;</td>
+      <td width="40">&nbsp;</td>
+    </tr>
+      {% for i in datamv %}
+    <tr>
+
+      <td>{{ forloop.counter }}</td>
+      <td>{{ i.MANAGECASTINGMAIN.casting_film }}</td>
+      <td>{{ i.MANAGECASTINGMAIN.casting_manager}}</td>
+      <td>{{ i.MANAGECASTINGMAIN.email }}</td>
+      <td>{{ i.MANAGECASTINGMAIN.producer }}</td>
+      <td>{{ i.MANAGECASTINGMAIN.director }}</td>
+      <td>{{ i.MANAGECASTINGMAIN.production_house }}</td>
+      <td>{{ i.MANAGECASTINGMAIN.film_jenre }}</td>
+      <td>{{ i.location }}</td>
+      <td>{{ i.duration }}</td>
+      <td>{{ i.from_date }}</td>
+      <td>{{ i.to_date }}</td>
+      <td>{{ i.gender }}</td>
+      <td>{{ i.age_requirement }}</td>
+      <td>{{ i.casting_requirements }}</td>
+      <td>{{ i.video_description }}</td>
+      <td>{{ i.rules }}</td>
+      <td><a href="/myapp/selectedcandidates/{{ i.id }}">Selected Candidates</a> </td>
+      <td><a href="/myapp/complaintview/{{ i.id }}">View Complaints</a></td>
+    </tr>
+       {% endfor %}
+  </table>
+ </div>
+
+  <p>&nbsp;</p>
+  
+</form>
+{% endblock %}

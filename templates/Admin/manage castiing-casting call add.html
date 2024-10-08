@@ -1,0 +1,126 @@
+
+{% extends "Admin/adminindex.html" %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/myapp/managecastadd_post/">
+    {% csrf_token %}
+  <table width="200" height="280" border="1" class="table table-bordered">
+    <tr>
+      <td>&nbsp;</td>
+      <td>CASTING CALL</td>
+    </tr>
+    <tr>
+      <td>Film Name</td>
+      <td><input type="text" name="textfield" id="textfield" /></td>
+    </tr>
+    <tr>
+      <td>Casting Manager</td>
+      <td><label for="textfield8"></label>
+      <input type="text" name="textfield8" id="textfield8" /></td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td><input type="text" name="textfield2" id="textfield2" /></td>
+    </tr>
+    <tr>
+      <td>Producer</td>
+      <td><input type="text" name="textfield3" id="textfield3" /></td>
+    </tr>
+    <tr>
+      <td>Director</td>
+      <td><input type="text" name="textfield4" id="textfield4" /></td>
+    </tr>
+    <tr>
+      <td>Production House</td>
+      <td><label for="textfield11"></label>
+      <input type="text" name="textfield11" id="textfield11" /></td>
+    </tr>
+    <tr>
+      <td>film Genre</td>
+      <td><label for="textfield10"></label>
+      <select name="textfield10">
+          <option value="Action">Action</option>
+          <option value="Adventure">Adventure</option>
+          <option value="Animation">Animation</option>
+          <option value="Biography">Biography</option>
+          <option value="Comedy">Comedy</option>
+          <option value="Crime">Crime</option>
+          <option value="Documentary">Documentary</option>
+          <option value="Drama">Drama</option>
+          <option value="Family">Family</option>
+          <option value="Fantasy">Fantasy</option>
+          <option value="Horror">Horror</option>
+          <option value="History">History</option>
+          <option value="Mystery">Mystery</option>
+          <option value="Romance">Romance</option>
+          <option value="Science Fiction">Science Fiction</option>
+          <option value="Thriller">Thriller</option>
+          <option value="War">War</option>
+          <option value="Western">Western</option>
+
+
+      </select></td>
+
+      </td>
+    </tr>
+    <tr>
+      <td>Location</td>
+      <td><input type="text" name="textfield5" id="textfield5" /></td>
+    </tr>
+    <tr>
+      <td>Duration</td>
+      <td><label for="textfield12"></label>
+      <input type="text" name="textfield12" id="textfield12" /></td>
+    </tr>
+    <tr>
+      <td>From Date</td>
+      <td><label for="textfield13"></label>
+      <input type="date" name="textfield13" id="textfield13" /></td>
+    </tr>
+    <tr>
+      <td>To Date</td>
+      <td><input type="date" name="textfield6" id="textfield6" /></td>
+    </tr>
+    <tr>
+      <td>Age Requirement</td>
+      <td><input type="text" name="textfield7" id="textfield7" /></td>
+    </tr>
+     <tr>
+      <td>Gender Requirement</td>
+      <td><p><br />
+          <label for="radio2"></label>
+        <label>
+          <input type="radio" name="RadioGroup2" value="Male" id="RadioGroup2_0" />
+          Male</label>
+        <br />
+        <label>
+          <input type="radio" name="RadioGroup2" value="Female" id="RadioGroup2_1" />
+          Female</label>
+        <br />
+        <label>
+          <input type="radio" name="RadioGroup2" value="Other" id="RadioGroup2_2" />
+          Other</label>
+        <br />
+        <label for="radio"></label>
+        <br />
+      </p></td>
+    </tr>
+    <tr>
+      <td>Requirements For Casting</td>
+      <td><textarea name="textarea" id="textarea" cols="45" rows="5"></textarea></td>
+    </tr>
+    <tr>
+      <td>Video Description</td>
+      <td><textarea name="textarea2" id="textarea2" cols="45" rows="5"></textarea></td>
+    </tr>
+    <tr>
+      <td>Rules</td>
+      <td><label for="textfield9"></label>
+      <input type="text" name="textfield9" id="textfield9" /></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><input type="submit" name="button" id="button" value="Submit" class="btn btn-success" /></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

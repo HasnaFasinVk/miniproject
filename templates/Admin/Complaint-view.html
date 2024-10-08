@@ -1,0 +1,38 @@
+{% extends "Admin/adminindex.html" %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/complaint_search/">
+
+  <table width="242" border="1">
+    <tr>
+      <td>From date</td>
+      <td><input type="date" name="textfield" id="textfield" /></td>
+      <td>To Date</td>
+      <td><input type="date" name="textfield2" id="textfield2" /></td>
+      <td><input type="submit" name="button" id="button" value="Search" /></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <table width="251" border="1">
+    <tr>
+      <td width="50">Serial Number</td>
+      <td width="42">Date</td>
+      <td width="31">User Info</td>
+      <td width="42">Complaint</td>
+      <td width="50">Reply</td>
+
+    </tr>
+      {% for i in data %}
+    <tr>
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ i.date }}</td>
+      <td>{{ i.USER.name  }}</td>
+        <td>{{ i.complaint }}</td>
+      <td>{% if i.status == 'pending' %}<a href="/myapp/complaintreply/{{ i.id }}">Reply</a>{% elif i.status == 'Replied' %}{{ i.reply }}{% endif %}</td>
+    </tr>
+       {% endfor %}
+  </table>
+  <p>&nbsp;</p>
+</form>
+{% endblock %}
